@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Built-By: 212707497
+Class-Path: lib/junit-4.12.jar lib/hamcrest-core-1.3.jar
+Build-Jdk: 1.8.0_171
+Created-By: Maven Integration for Eclipse
+Main-Class: smaller.Smaller
+
