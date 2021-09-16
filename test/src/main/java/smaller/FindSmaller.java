@@ -24,23 +24,43 @@ public class FindSmaller {
 		}
 		int i;
 		String returnNumber = null;
+		//find the digit smaller than previous
 		for (i = lenght - 1; i > 0; i--) {
+			System.out.println("number[i] "+number[i]+" number[i-1] "+number[i-1]);
 			if (number[i] > number[i - 1]) {
 				break;
 			}
 		}
+//		System.out.println(" ddigit smaller than prev digit position "+i +" smaller digit "+number[i-1]);
+		// i=0 means number is in sorted in descending
 		if (i == 0) {
 			System.out.println("Next Big number is same as input");
 			returnNumber = String.valueOf(number);
 		} else {
-			int x = number[i - 1];
-			int min = i;
+//			int x = number[i - 1];
+			int minPosition = i;
+			
+			//Find smallest to right side from 'i' greater than found 
+			//Find the smallest digit on right  side of (i-1)'th digit that is greater than number[i-1] 
 			for (int j = i + 1; j < lenght; j++) {
-				if (number[j] > x && number[j] < number[min]) {
-					min = j;
+				System.out.println("number[j] "+number[j]+"  number[min]" + number[minPosition]+" number[i-1] "+number[i-1]);
+				if (number[j] > number[i - 1] && number[j] < number[minPosition]) {
+					minPosition = j;
 				}
 			}
-			swap(number, i - 1, min);
+			//swap numbers
+			swap(number, i - 1, minPosition);
+			/*char temp;
+			for(int j = i+1; j<lenght; j++ ){
+		         for(int k = j+1; k<lenght; k++){
+		            if(number[j]>number[k]){
+		               temp = number[j];
+		               number[j] = number[k];
+		               number[k] = temp;
+		            }
+		         }
+		      }*/
+			//sort numbers right to the digit 
 			Arrays.sort(number, i, lenght);
 			returnNumber = String.valueOf(number);
 		}

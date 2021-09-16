@@ -24,7 +24,7 @@ public class TestSmaller {
 	@Test
 	public void positiveTest() {
 
-		assertEquals("75436", FindSmaller.nextbig("75436".toCharArray(), 4));
+		assertEquals("75463", FindSmaller.nextbig("75436".toCharArray(), 5));
 	}
 
 }
